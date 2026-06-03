@@ -4,22 +4,63 @@
   "description": "Reduce AI token usage by 90-98% — smart project memory for VS Code",
   "version": "1.0.0",
   "publisher": "faisalnavy",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other", "Machine Learning"],
-  "keywords": ["ai", "memory", "token", "claude", "cursor", "copilot", "llm"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "ai",
+    "memory",
+    "token",
+    "claude",
+    "cursor",
+    "copilot",
+    "llm"
+  ],
   "icon": "media/icon.png",
-  "activationEvents": ["onStartupFinished"],
+  "repository": { "type": "git", "url": "https://github.com/faisalnavy/ai-memory-engine" },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "memoryEngine.init",     "title": "Memory: Initialize Project" },
-      { "command": "memoryEngine.index",    "title": "Memory: Index Project" },
-      { "command": "memoryEngine.update",   "title": "Memory: Update (Incremental)" },
-      { "command": "memoryEngine.ask",      "title": "Memory: Ask — Get AI Context" },
-      { "command": "memoryEngine.search",   "title": "Memory: Search" },
-      { "command": "memoryEngine.stats",    "title": "Memory: Show Stats" },
-      { "command": "memoryEngine.compress", "title": "Memory: Compress Sessions" },
-      { "command": "memoryEngine.refresh",  "title": "Memory: Refresh Views", "icon": "$(refresh)" }
+      {
+        "command": "memoryEngine.init",
+        "title": "Memory: Initialize Project"
+      },
+      {
+        "command": "memoryEngine.index",
+        "title": "Memory: Index Project"
+      },
+      {
+        "command": "memoryEngine.update",
+        "title": "Memory: Update (Incremental)"
+      },
+      {
+        "command": "memoryEngine.ask",
+        "title": "Memory: Ask — Get AI Context"
+      },
+      {
+        "command": "memoryEngine.search",
+        "title": "Memory: Search"
+      },
+      {
+        "command": "memoryEngine.stats",
+        "title": "Memory: Show Stats"
+      },
+      {
+        "command": "memoryEngine.compress",
+        "title": "Memory: Compress Sessions"
+      },
+      {
+        "command": "memoryEngine.refresh",
+        "title": "Memory: Refresh Views",
+        "icon": "$(refresh)"
+      }
     ],
     "viewsContainers": {
       "activitybar": [
@@ -32,10 +73,22 @@
     },
     "views": {
       "memoryEngine": [
-        { "id": "memoryExplorer",    "name": "Memory Explorer" },
-        { "id": "graphExplorer",     "name": "Dependency Graph" },
-        { "id": "tokenSavings",      "name": "Token Savings" },
-        { "id": "sessionHistory",    "name": "Session History" }
+        {
+          "id": "memoryExplorer",
+          "name": "Memory Explorer"
+        },
+        {
+          "id": "graphExplorer",
+          "name": "Dependency Graph"
+        },
+        {
+          "id": "tokenSavings",
+          "name": "Token Savings"
+        },
+        {
+          "id": "sessionHistory",
+          "name": "Session History"
+        }
       ]
     },
     "menus": {
@@ -79,8 +132,11 @@
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
     "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.9.1"
   }
 }
