@@ -65,7 +65,7 @@ function createWindow() {
     show: false,
   });
 
-  const url = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../../build/index.html')}`;
+  const url = isDev ? 'http://localhost:5173' : `file://${path.join(__dirname, '../../dist/index.html')}`;
   mainWindow.loadURL(url);
 
   mainWindow.once('ready-to-show', () => {

@@ -7,7 +7,10 @@ import argparse
 from pathlib import Path
 
 # Add memory-engine core to path
-BASE = Path(__file__).parent.parent.parent / "memory-engine"
+# When running from inside memory-engine/desktop-app/api/, parent.parent IS memory-engine/
+BASE = Path(__file__).parent.parent.parent
+if not (BASE / "storage").exists():
+    BASE = Path(__file__).parent.parent  # fallback: already inside memory-engine/
 sys.path.insert(0, str(BASE))
 
 try:
