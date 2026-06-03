@@ -83,7 +83,7 @@ python --version
 **Step 2 — Clone the repository**
 
 ```cmd
-git clone https://github.com/YOUR_USERNAME/ai-memory-engine.git
+git clone https://github.com/FaisalAllyd/ai-memory-engine.git
 cd ai-memory-engine
 ```
 
@@ -142,7 +142,7 @@ python3 --version
 **Step 2 — Clone the repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-memory-engine.git
+git clone https://github.com/FaisalAllyd/ai-memory-engine.git
 cd ai-memory-engine
 ```
 
@@ -211,7 +211,7 @@ python3 --version
 **Step 2 — Clone the repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-memory-engine.git
+git clone https://github.com/FaisalAllyd/ai-memory-engine.git
 cd ai-memory-engine
 ```
 
