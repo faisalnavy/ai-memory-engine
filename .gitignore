@@ -52,3 +52,8 @@ coverage.xml
 # Exports
 *.zip
 memory-export.zip
+node_modules/
+vscode-extension/node_modules/
+desktop-app/node_modules/
+saas-platform/frontend/node_modules/
+__pycache__/

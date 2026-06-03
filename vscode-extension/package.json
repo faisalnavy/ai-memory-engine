@@ -1,0 +1,86 @@
+{
+  "name": "ai-memory-engine",
+  "displayName": "AI Memory Engine",
+  "description": "Reduce AI token usage by 90-98% — smart project memory for VS Code",
+  "version": "1.0.0",
+  "publisher": "faisalnavy",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other", "Machine Learning"],
+  "keywords": ["ai", "memory", "token", "claude", "cursor", "copilot", "llm"],
+  "icon": "media/icon.png",
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "memoryEngine.init",     "title": "Memory: Initialize Project" },
+      { "command": "memoryEngine.index",    "title": "Memory: Index Project" },
+      { "command": "memoryEngine.update",   "title": "Memory: Update (Incremental)" },
+      { "command": "memoryEngine.ask",      "title": "Memory: Ask — Get AI Context" },
+      { "command": "memoryEngine.search",   "title": "Memory: Search" },
+      { "command": "memoryEngine.stats",    "title": "Memory: Show Stats" },
+      { "command": "memoryEngine.compress", "title": "Memory: Compress Sessions" },
+      { "command": "memoryEngine.refresh",  "title": "Memory: Refresh Views", "icon": "$(refresh)" }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "memoryEngine",
+          "title": "AI Memory Engine",
+          "icon": "media/brain.svg"
+        }
+      ]
+    },
+    "views": {
+      "memoryEngine": [
+        { "id": "memoryExplorer",    "name": "Memory Explorer" },
+        { "id": "graphExplorer",     "name": "Dependency Graph" },
+        { "id": "tokenSavings",      "name": "Token Savings" },
+        { "id": "sessionHistory",    "name": "Session History" }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "memoryEngine.refresh",
+          "when": "view == memoryExplorer",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AI Memory Engine",
+      "properties": {
+        "memoryEngine.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python interpreter (python3 on Mac/Linux)"
+        },
+        "memoryEngine.cliPath": {
+          "type": "string",
+          "default": "",
+          "description": "Full path to cli/main.py (leave empty to auto-detect)"
+        },
+        "memoryEngine.autoUpdate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically update memory when files are saved"
+        },
+        "memoryEngine.maxTokens": {
+          "type": "number",
+          "default": 3000,
+          "description": "Maximum tokens in context package"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
