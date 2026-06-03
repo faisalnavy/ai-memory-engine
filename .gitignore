@@ -57,3 +57,6 @@ vscode-extension/node_modules/
 desktop-app/node_modules/
 saas-platform/frontend/node_modules/
 __pycache__/
+desktop-app/api-dist/
+desktop-app/dist-electron/
+desktop-app/dist/

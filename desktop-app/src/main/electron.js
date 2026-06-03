@@ -16,13 +16,22 @@ let apiProcess = null;
 // ── Start Python FastAPI backend ─────────────────────────────────────────────
 
 function startApi() {
-  const apiPath = isDev
-    ? path.join(__dirname, '..', '..', 'api', 'server.py')
-    : path.join(process.resourcesPath, 'api', 'server.py');
+  let apiExe, apiArgs;
 
-  const python = process.platform === 'win32' ? 'python' : 'python3';
+  if (isDev) {
+    // Development: run via python
+    const python = process.platform === 'win32' ? 'python' : 'python3';
+    const apiPath = path.join(__dirname, '..', '..', 'api', 'server.py');
+    apiExe  = python;
+    apiArgs = ['-X', 'utf8', apiPath, '--port', String(API_PORT)];
+  } else {
+    // Production: use bundled api.exe (Windows) or api binary (Mac/Linux)
+    const exeName = process.platform === 'win32' ? 'api.exe' : 'api';
+    apiExe  = path.join(process.resourcesPath, 'api-dist', exeName);
+    apiArgs = ['--port', String(API_PORT)];
+  }
 
-  apiProcess = spawn(python, ['-X', 'utf8', apiPath, '--port', String(API_PORT)], {
+  apiProcess = spawn(apiExe, apiArgs, {
     env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
   });
 
