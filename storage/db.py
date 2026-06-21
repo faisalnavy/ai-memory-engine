@@ -1,9 +1,14 @@
+import sys
 import sqlite3
 import json
 from pathlib import Path
 from typing import Any
 
-SCHEMA_PATH = Path(__file__).parent / "schema.sql"
+# When running as a PyInstaller bundle, use sys._MEIPASS for bundled files
+if getattr(sys, 'frozen', False):
+    SCHEMA_PATH = Path(sys._MEIPASS) / "storage" / "schema.sql"
+else:
+    SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 
 
 def get_db_path(project_path: str) -> Path:
